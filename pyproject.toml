@@ -1,0 +1,47 @@
+[build-system]
+# The build hook (hatch_build.py) downloads the pinned conda-forge packages and unpacks the platform's files; a
+# .conda holds a zstd tarball, which the standard library reads from 3.14.
+requires = ["hatchling>=1.27", "zstandard>=0.22; python_version < '3.14'"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ccx"
+version = "2.23.0"
+description = "CalculiX's ccx solver, packaged as a wheel, with a small launcher. Unofficial."
+readme = "README.md"
+requires-python = ">=3.9"
+# The launcher is MIT; a wheel bundles CalculiX (GPL-2.0) and the libraries it loads under their own licences
+# (LICENSES/): reference BLAS/LAPACK and ARPACK (BSD-3-Clause), GCC's runtime libraries (GPL-3.0 with the GCC
+# Runtime Library Exception), LLVM's OpenMP on macOS, mingw-w64's winpthreads and Microsoft's C runtime on Windows.
+license = "MIT AND GPL-2.0-only AND BSD-3-Clause AND GPL-3.0-only WITH GCC-exception-3.1 AND Apache-2.0 WITH LLVM-exception AND LicenseRef-MicrosoftVisualCpp2015-2022Runtime"
+license-files = ["LICENSE", "LICENSES/*"]
+keywords = ["calculix", "ccx", "fea", "finite element", "solver", "abaqus"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.scripts]
+ccx = "ccx.__main__:main"
+
+[project.urls]
+Source = "https://github.com/earthtojake/ccx"
+Issues = "https://github.com/earthtojake/ccx/issues"
+CalculiX = "https://www.calculix.de"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ccx"]
+
+[tool.hatch.build.targets.wheel.hooks.custom]
+path = "hatch_build.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "scripts", "hatch_build.py", "pins.json", "LICENSE", "LICENSES", "README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,505 @@
+{
+  "calculix": "2.23",
+  "platforms": {
+    "linux-64": {
+      "tag": "manylinux_2_17_x86_64.manylinux2014_x86_64",
+      "packages": [
+        {
+          "name": "_openmp_mutex",
+          "file": "_openmp_mutex-4.5-20_gnu.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda",
+          "sha256": "1dd3fffd892081df9726d7eb7e0dea6198962ba775bd88842135a4ddb4deb3c9",
+          "size": 28948
+        },
+        {
+          "name": "arpack",
+          "file": "arpack-3.9.1-nompi_hf03ea27_102.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/arpack-3.9.1-nompi_hf03ea27_102.conda",
+          "sha256": "6d71343420292132be0192ddd962b308f7b8a0a0630d1db83fb9d65e8167c6ce",
+          "size": 130412
+        },
+        {
+          "name": "calculix",
+          "file": "calculix-2.23-pl5321h92dc11e_8.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/calculix-2.23-pl5321h92dc11e_8.conda",
+          "sha256": "b0295e07a4a697ed510cd17e3f1451be00ffd7c28312aec201e7e4773abd7836",
+          "size": 2716428
+        },
+        {
+          "name": "libblas",
+          "file": "libblas-3.11.0-10_h978bd12_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libblas-3.11.0-10_h978bd12_netlib.conda",
+          "sha256": "38668b1a0f2cea27ddd8cb1ee573ab1494afda6c52c3c9ffa23c96669de35c1f",
+          "size": 223083
+        },
+        {
+          "name": "libgcc",
+          "file": "libgcc-16.2.0-ha9f2e26_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libgcc-16.2.0-ha9f2e26_7.conda",
+          "sha256": "e031634c3a928f9594eba868bc46ef5230d6571a364a0c63215b06c4563bfcea",
+          "size": 1058444
+        },
+        {
+          "name": "libgfortran",
+          "file": "libgfortran-16.2.0-h69a702a_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libgfortran-16.2.0-h69a702a_7.conda",
+          "sha256": "9682ae4dd11487e10b904b3cb3ab6379cad25233d45fdfdf90d54349df244494",
+          "size": 28571
+        },
+        {
+          "name": "libgfortran5",
+          "file": "libgfortran5-16.2.0-h6b99dfc_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libgfortran5-16.2.0-h6b99dfc_7.conda",
+          "sha256": "04dbab12c925b92977bb835dd2f5eda413607afa79f95a554e5a04b07a380322",
+          "size": 2528180
+        },
+        {
+          "name": "libgomp",
+          "file": "libgomp-16.2.0-he0feb66_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libgomp-16.2.0-he0feb66_7.conda",
+          "sha256": "92a0bb350c7be6a4eedcb4e111c60aefd176018e6b1c009a6e025dbe9bbcd758",
+          "size": 640566
+        },
+        {
+          "name": "liblapack",
+          "file": "liblapack-3.11.0-10_he2a6e96_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/liblapack-3.11.0-10_he2a6e96_netlib.conda",
+          "sha256": "3f83565d7a1b60f45324e92f47f509a6e833e812ef842618ce38e74f642ff66c",
+          "size": 2892398
+        },
+        {
+          "name": "libstdcxx",
+          "file": "libstdcxx-16.2.0-h934c35e_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-64/libstdcxx-16.2.0-h934c35e_7.conda",
+          "sha256": "fa7018298629fc429971fffd6ecba3d27a7b02e4e890d6a93ea01ffebe8cb745",
+          "size": 6615436
+        }
+      ],
+      "files": {
+        "bin/ccx": "bin/ccx",
+        "lib/libarpack.so.2": "lib/libarpack.so.2.1.0",
+        "lib/libblas.so.3": "lib/libblas.so.3.11.0",
+        "lib/libgcc_s.so.1": "lib/libgcc_s.so.1",
+        "lib/libgfortran.so.5": "lib/libgfortran.so.5.0.0",
+        "lib/libgomp.so.1": "lib/libgomp.so.1.0.0",
+        "lib/liblapack.so.3": "lib/liblapack.so.3.11.0",
+        "lib/libquadmath.so.0": "lib/libquadmath.so.0.0.0"
+      },
+      "system": [
+        "ld-linux-x86-64.so.2",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0",
+        "librt.so.1"
+      ]
+    },
+    "linux-aarch64": {
+      "tag": "manylinux_2_17_aarch64.manylinux2014_aarch64",
+      "packages": [
+        {
+          "name": "_openmp_mutex",
+          "file": "_openmp_mutex-4.5-20_gnu.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda",
+          "sha256": "a2527b1d81792a0ccd2c05850960df119c2b6d8f5fdec97f2db7d25dc23b1068",
+          "size": 28926
+        },
+        {
+          "name": "arpack",
+          "file": "arpack-3.9.1-nompi_h6fc4d3a_102.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/arpack-3.9.1-nompi_h6fc4d3a_102.conda",
+          "sha256": "bc95bdc29ce23bb575c8b30b66c55d2b1a1d381928dd83d090a24cdb5770679b",
+          "size": 119922
+        },
+        {
+          "name": "calculix",
+          "file": "calculix-2.23-pl5321h874b4c1_8.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/calculix-2.23-pl5321h874b4c1_8.conda",
+          "sha256": "e03a53e709e854d2d284204b013c0c05070e5c9a4ff84916ca75f0634f552f31",
+          "size": 2747422
+        },
+        {
+          "name": "libblas",
+          "file": "libblas-3.11.0-10_h0656d3e_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libblas-3.11.0-10_h0656d3e_netlib.conda",
+          "sha256": "94b7e8d69b2bbb65d556f4a81859ede3101dd6e4b03a88fa9f5a9e3682ee552d",
+          "size": 165489
+        },
+        {
+          "name": "libgcc",
+          "file": "libgcc-16.2.0-h205dda4_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libgcc-16.2.0-h205dda4_7.conda",
+          "sha256": "eae7a3449d5a3b5351c5427137c076cc3fc826645c7bfc42dc10772b783826f1",
+          "size": 627793
+        },
+        {
+          "name": "libgfortran",
+          "file": "libgfortran-16.2.0-he9431aa_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libgfortran-16.2.0-he9431aa_7.conda",
+          "sha256": "827d61d002235b26f9af0a51dccf9a1b0f2e83e50f05e10ff86a984bfd4897b4",
+          "size": 28663
+        },
+        {
+          "name": "libgfortran5",
+          "file": "libgfortran5-16.2.0-hc864f27_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libgfortran5-16.2.0-hc864f27_7.conda",
+          "sha256": "190e69c2be216c3f716dbcf23a5a37c4b8ddcd8beb7c1c5b8e48e85ddc73d50f",
+          "size": 1488495
+        },
+        {
+          "name": "libgomp",
+          "file": "libgomp-16.2.0-h8acb6b2_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libgomp-16.2.0-h8acb6b2_7.conda",
+          "sha256": "4406fd67c5beeb99b9372f9bf07aa3e40ca141e337eceebac3ff64aa72799494",
+          "size": 617342
+        },
+        {
+          "name": "liblapack",
+          "file": "liblapack-3.11.0-10_hf8808b6_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/liblapack-3.11.0-10_hf8808b6_netlib.conda",
+          "sha256": "1a32e51bbfa04daa67e63d64a0fa704b0064252356e51cce082b6bfea045b2cf",
+          "size": 2364102
+        },
+        {
+          "name": "libstdcxx",
+          "file": "libstdcxx-16.2.0-hef695bb_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/linux-aarch64/libstdcxx-16.2.0-hef695bb_7.conda",
+          "sha256": "b241a3acfa9cdb1359112864a1241225533c92642de3000d52ae65ef5d3a9786",
+          "size": 6236630
+        }
+      ],
+      "files": {
+        "bin/ccx": "bin/ccx",
+        "lib/libarpack.so.2": "lib/libarpack.so.2.1.0",
+        "lib/libblas.so.3": "lib/libblas.so.3.11.0",
+        "lib/libgcc_s.so.1": "lib/libgcc_s.so.1",
+        "lib/libgfortran.so.5": "lib/libgfortran.so.5.0.0",
+        "lib/libgomp.so.1": "lib/libgomp.so.1.0.0",
+        "lib/liblapack.so.3": "lib/liblapack.so.3.11.0"
+      },
+      "system": [
+        "ld-linux-aarch64.so.1",
+        "libc.so.6",
+        "libdl.so.2",
+        "libm.so.6",
+        "libpthread.so.0"
+      ]
+    },
+    "osx-64": {
+      "tag": "macosx_11_0_x86_64",
+      "packages": [
+        {
+          "name": "_openmp_mutex",
+          "file": "_openmp_mutex-4.5-8_kmp_llvm.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/_openmp_mutex-4.5-8_kmp_llvm.conda",
+          "sha256": "09ba32614a1512b729e3cb608b0714c24654f37b5d0f8239bdb77d7be0ede4f7",
+          "size": 8002
+        },
+        {
+          "name": "arpack",
+          "file": "arpack-3.9.1-nompi_hdfe9103_102.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/arpack-3.9.1-nompi_hdfe9103_102.conda",
+          "sha256": "fbb8ab189e4700bbb856abdee6f71172628004c009cc276e44ffa3fdd2599985",
+          "size": 125644
+        },
+        {
+          "name": "calculix",
+          "file": "calculix-2.23-pl5321he458aea_8.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/calculix-2.23-pl5321he458aea_8.conda",
+          "sha256": "2bf3ca4a04e5abf1b1a1a91b3788b2c7dbb978fc846472c2327ced4f0df1c7ad",
+          "size": 2681057
+        },
+        {
+          "name": "libblas",
+          "file": "libblas-3.11.0-10_h4e0dc37_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/libblas-3.11.0-10_h4e0dc37_netlib.conda",
+          "sha256": "8e1ad8305aadd36b5dbc88419157149b280e2fef67f9aee4bebc2046e0c22fed",
+          "size": 217840
+        },
+        {
+          "name": "libcxx",
+          "file": "libcxx-23.1.5-h19cb2f5_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/libcxx-23.1.5-h19cb2f5_0.conda",
+          "sha256": "175d8a9b3a6a035fba07d9b44a75c85957b84bafc834d1aeeda87cf57f764917",
+          "size": 573172
+        },
+        {
+          "name": "libgcc",
+          "file": "libgcc-16.2.0-h13771c8_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/libgcc-16.2.0-h13771c8_7.conda",
+          "sha256": "9b41fcce83df18224b3a3157d757bf0fc08c6f975e228d0049c0701d3e584faa",
+          "size": 390794
+        },
+        {
+          "name": "libgfortran",
+          "file": "libgfortran-16.2.0-h7e5c614_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/libgfortran-16.2.0-h7e5c614_7.conda",
+          "sha256": "73ca26e786bb3ea011ecc3fb763469cea5a371347bdff504075e457141a80754",
+          "size": 100012
+        },
+        {
+          "name": "libgfortran5",
+          "file": "libgfortran5-16.2.0-h2539e6c_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/libgfortran5-16.2.0-h2539e6c_7.conda",
+          "sha256": "5749bacc1a5bf6c9933623399742c4d4c148299a5fe0d7b3fa7a93e93606e8b7",
+          "size": 1023547
+        },
+        {
+          "name": "liblapack",
+          "file": "liblapack-3.11.0-10_h62a855d_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/liblapack-3.11.0-10_h62a855d_netlib.conda",
+          "sha256": "15ade8ec84cc114b1f5d525db30ddfb51333cac2fbb1bdfd39dea20d0e15fc6c",
+          "size": 2732907
+        },
+        {
+          "name": "llvm-openmp",
+          "file": "llvm-openmp-23.1.5-h8c1e6b9_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-64/llvm-openmp-23.1.5-h8c1e6b9_0.conda",
+          "sha256": "80c9c88900445ca36fc338adceb9540d053321523ff7018e7c2c676d8f7f0dd0",
+          "size": 312026
+        }
+      ],
+      "files": {
+        "bin/ccx": "bin/ccx",
+        "lib/libarpack.2.dylib": "lib/libarpack.2.1.0.dylib",
+        "lib/libblas.3.dylib": "lib/libblas.3.11.0.dylib",
+        "lib/libblas.dylib": "lib/libblas.3.11.0.dylib",
+        "lib/libgcc_s.1.1.dylib": "lib/libgcc_s.1.1.dylib",
+        "lib/libgfortran.5.dylib": "lib/libgfortran.5.dylib",
+        "lib/liblapack.3.dylib": "lib/liblapack.3.11.0.dylib",
+        "lib/libomp.dylib": "lib/libomp.dylib",
+        "lib/libquadmath.0.dylib": "lib/libquadmath.0.dylib"
+      },
+      "system": [
+        "libSystem.B.dylib"
+      ]
+    },
+    "osx-arm64": {
+      "tag": "macosx_11_0_arm64",
+      "packages": [
+        {
+          "name": "_openmp_mutex",
+          "file": "_openmp_mutex-4.5-8_kmp_llvm.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/_openmp_mutex-4.5-8_kmp_llvm.conda",
+          "sha256": "c7c98ce74f6a7ff25aaa4706d06fa41d63a333add4d697b73aa4d8d2d7ad7651",
+          "size": 8016
+        },
+        {
+          "name": "arpack",
+          "file": "arpack-3.9.1-nompi_h1f29f7c_102.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/arpack-3.9.1-nompi_h1f29f7c_102.conda",
+          "sha256": "314fb780a811d1bcd31b34266016d1d49e754e37a476f8b18d8ea81599865444",
+          "size": 120348
+        },
+        {
+          "name": "calculix",
+          "file": "calculix-2.23-pl5321hd17ca8b_8.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/calculix-2.23-pl5321hd17ca8b_8.conda",
+          "sha256": "fc117d68514422cb38c65fd977aaf53a2f0a3f439336e93b61e7c417711d1c40",
+          "size": 2643454
+        },
+        {
+          "name": "libblas",
+          "file": "libblas-3.11.0-10_h750537c_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libblas-3.11.0-10_h750537c_netlib.conda",
+          "sha256": "146030023741cc3ca8ec596397bceddd86dd5430149fbb9819b52253b2bfc0dc",
+          "size": 158004
+        },
+        {
+          "name": "libcxx",
+          "file": "libcxx-23.1.5-h55c6f16_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libcxx-23.1.5-h55c6f16_0.conda",
+          "sha256": "b4b1fd6107980fed8b4e7ae8b08257b50c0f88b8771a530dc4a561f5d796457b",
+          "size": 577751
+        },
+        {
+          "name": "libgcc",
+          "file": "libgcc-16.2.0-h3cf6597_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libgcc-16.2.0-h3cf6597_7.conda",
+          "sha256": "deacf62bd6cbbe05eb085dd69a2ca120053597c37066d53c8f7cf6815f26e9eb",
+          "size": 365973
+        },
+        {
+          "name": "libgfortran",
+          "file": "libgfortran-16.2.0-h07b0088_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libgfortran-16.2.0-h07b0088_7.conda",
+          "sha256": "a5b4b63d0ef4c7c59c37225b9f0307b5cd2a3a8499b2a40b6ddd2b9f072712a8",
+          "size": 99745
+        },
+        {
+          "name": "libgfortran5",
+          "file": "libgfortran5-16.2.0-hdb7a957_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/libgfortran5-16.2.0-hdb7a957_7.conda",
+          "sha256": "19297e5cf39de976cdd1a46499a4e15fdf54d249d3231f3b2a9d43af3be0bc66",
+          "size": 554793
+        },
+        {
+          "name": "liblapack",
+          "file": "liblapack-3.11.0-10_h1192568_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/liblapack-3.11.0-10_h1192568_netlib.conda",
+          "sha256": "40230dc053ac9200bf061f4ed2ec99f7c0c4aa098aaa2be4b359359991f1ecdb",
+          "size": 2353717
+        },
+        {
+          "name": "llvm-openmp",
+          "file": "llvm-openmp-23.1.5-hdb3d66b_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/osx-arm64/llvm-openmp-23.1.5-hdb3d66b_0.conda",
+          "sha256": "7a68977e62bd0c967509a7a01a25c215bb8027071dafe03aa1976fd8ade94013",
+          "size": 287928
+        }
+      ],
+      "files": {
+        "bin/ccx": "bin/ccx",
+        "lib/libarpack.2.dylib": "lib/libarpack.2.1.0.dylib",
+        "lib/libblas.3.dylib": "lib/libblas.3.11.0.dylib",
+        "lib/libblas.dylib": "lib/libblas.3.11.0.dylib",
+        "lib/libgcc_s.1.1.dylib": "lib/libgcc_s.1.1.dylib",
+        "lib/libgfortran.5.dylib": "lib/libgfortran.5.dylib",
+        "lib/liblapack.3.dylib": "lib/liblapack.3.11.0.dylib",
+        "lib/libomp.dylib": "lib/libomp.dylib",
+        "lib/libquadmath.0.dylib": "lib/libquadmath.0.dylib"
+      },
+      "system": [
+        "libSystem.B.dylib"
+      ]
+    },
+    "win-64": {
+      "tag": "win_amd64",
+      "packages": [
+        {
+          "name": "_openmp_mutex",
+          "file": "_openmp_mutex-4.5-20_gnu.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/_openmp_mutex-4.5-20_gnu.conda",
+          "sha256": "8a1cee28bd0ee7451ada1cd50b64720e57e17ff994fc62dd8329bef570d382e4",
+          "size": 52252
+        },
+        {
+          "name": "arpack",
+          "file": "arpack-3.9.1-nompi_h1f7371d_102.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/arpack-3.9.1-nompi_h1f7371d_102.conda",
+          "sha256": "393a0f11fe53c9a4ce8e003f0f9816ce098179d4c06eacffd573afbb0f2e2f0c",
+          "size": 162939
+        },
+        {
+          "name": "calculix",
+          "file": "calculix-2.23-pl5321h7abefab_8.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/calculix-2.23-pl5321h7abefab_8.conda",
+          "sha256": "a6c1e75c092893d73d0bb3902cba9db7e14ba3fe4d2f8cd74cdfbc1bc041d1d1",
+          "size": 2625351
+        },
+        {
+          "name": "libblas",
+          "file": "libblas-3.11.0-10_h6c93730_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libblas-3.11.0-10_h6c93730_netlib.conda",
+          "sha256": "baef29691e333f0a68d6031d8728a30219ad76b7c61e4c3a06b69c810633c3d0",
+          "size": 152765
+        },
+        {
+          "name": "libgcc",
+          "file": "libgcc-16.2.0-h110b43a_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libgcc-16.2.0-h110b43a_7.conda",
+          "sha256": "59feb6d16cba13a70f22dae70a44670eb2cc45e652e9a34a014814c2ca871132",
+          "size": 826913
+        },
+        {
+          "name": "libgfortran",
+          "file": "libgfortran-16.2.0-h719f0c7_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libgfortran-16.2.0-h719f0c7_7.conda",
+          "sha256": "8e0d3445b5bdde22b6dfc2a7766b9336e448b240ff2015cd2cc73ca85f9b2130",
+          "size": 50071
+        },
+        {
+          "name": "libgfortran5",
+          "file": "libgfortran5-16.2.0-h7c9de5e_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libgfortran5-16.2.0-h7c9de5e_7.conda",
+          "sha256": "e9b86fe14cb9938abd08f0b1685b04457339f71d9f00783fe9258a1eb0229963",
+          "size": 2814898
+        },
+        {
+          "name": "libgomp",
+          "file": "libgomp-16.2.0-h8ee18e1_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libgomp-16.2.0-h8ee18e1_7.conda",
+          "sha256": "4b8a747f047d069ccd2a6cf2f4fdbc6b0c0e4dcd840998d1fe607b8c234e707b",
+          "size": 688609
+        },
+        {
+          "name": "liblapack",
+          "file": "liblapack-3.11.0-10_h018ca30_netlib.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/liblapack-3.11.0-10_h018ca30_netlib.conda",
+          "sha256": "759cc832354efdd05611ac3ca2603f5b5b569c8ec3e6b599680adcf667fcb45c",
+          "size": 2132312
+        },
+        {
+          "name": "libstdcxx",
+          "file": "libstdcxx-16.2.0-hae5796f_7.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libstdcxx-16.2.0-hae5796f_7.conda",
+          "sha256": "5984f81dcb289446fb3cdb0117c0680bded57eaa98da193f705400ec94fc71ae",
+          "size": 7217469
+        },
+        {
+          "name": "libwinpthread",
+          "file": "libwinpthread-12.0.0.r688.g6b2176247.1-h57928b3_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/libwinpthread-12.0.0.r688.g6b2176247.1-h57928b3_0.conda",
+          "sha256": "bab5558663cb0e964988b859abd69d0f2380b6ea9f140495ab543e51af13635d",
+          "size": 34475
+        },
+        {
+          "name": "ucrt",
+          "file": "ucrt-10.0.26100.0-h57928b3_0.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.26100.0-h57928b3_0.conda",
+          "sha256": "3005729dce6f3d3f5ec91dfc49fc75a0095f9cd23bab49efb899657297ac91a5",
+          "size": 694692
+        },
+        {
+          "name": "vc",
+          "file": "vc-14.5-ha367084_42.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/vc-14.5-ha367084_42.conda",
+          "sha256": "0598ca1ce913618cff9bd90391bcf75cd9edb22057c85dd6784dd762b7a888e2",
+          "size": 21309
+        },
+        {
+          "name": "vc14_runtime",
+          "file": "vc14_runtime-14.51.36247-habf1de7_42.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.51.36247-habf1de7_42.conda",
+          "sha256": "8dfbfd68ebf53249d11e528cbb80ad5a2460b0c5b4636eed82ee0d3950827a3d",
+          "size": 767099
+        },
+        {
+          "name": "vcomp14",
+          "file": "vcomp14-14.51.36247-habf1de7_42.conda",
+          "url": "https://conda.anaconda.org/conda-forge/win-64/vcomp14-14.51.36247-habf1de7_42.conda",
+          "sha256": "b3558ed059d6272ef919ea959311af73c35b5fe43c789cd43f71b398671fec49",
+          "size": 155686
+        }
+      ],
+      "files": {
+        "bin/VCRUNTIME140.dll": "Library/bin/vcruntime140.dll",
+        "bin/ccx.exe": "Library/bin/ccx.exe",
+        "bin/libarpack.dll": "Library/mingw-w64/bin/libarpack.dll",
+        "bin/libblas.dll": "Library/bin/libblas.dll",
+        "bin/libgcc_s_seh-1.dll": "Library/bin/libgcc_s_seh-1.dll",
+        "bin/libgfortran-5.dll": "Library/bin/libgfortran-5.dll",
+        "bin/libgomp-1.dll": "Library/bin/libgomp-1.dll",
+        "bin/liblapack.dll": "Library/bin/liblapack.dll",
+        "bin/libquadmath-0.dll": "Library/bin/libquadmath-0.dll",
+        "bin/libwinpthread-1.dll": "Library/bin/libwinpthread-1.dll"
+      },
+      "system": [
+        "ADVAPI32.dll",
+        "KERNEL32.dll",
+        "api-ms-win-crt-convert-l1-1-0.dll",
+        "api-ms-win-crt-environment-l1-1-0.dll",
+        "api-ms-win-crt-filesystem-l1-1-0.dll",
+        "api-ms-win-crt-heap-l1-1-0.dll",
+        "api-ms-win-crt-locale-l1-1-0.dll",
+        "api-ms-win-crt-math-l1-1-0.dll",
+        "api-ms-win-crt-private-l1-1-0.dll",
+        "api-ms-win-crt-runtime-l1-1-0.dll",
+        "api-ms-win-crt-stdio-l1-1-0.dll",
+        "api-ms-win-crt-string-l1-1-0.dll",
+        "api-ms-win-crt-time-l1-1-0.dll",
+        "api-ms-win-crt-utility-l1-1-0.dll"
+      ]
+    }
+  }
+}

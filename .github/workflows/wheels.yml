@@ -1,0 +1,122 @@
+name: Wheels
+
+# Every wheel and the sdist are built on one Linux runner (a wheel is a repackaging of conda-forge's CalculiX: any
+# machine builds any platform's), then each wheel is installed and tested on its own platform, and the sdist is
+# built into a wheel to prove it builds. A v* tag whose version matches the package's publishes everything to PyPI
+# through trusted publishing (the `pypi` environment; no token is stored).
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install the build tools
+        run: python -m pip install build "hatchling>=1.27"
+      - name: Build every platform's wheel and the sdist
+        run: |
+          for platform in linux-64 linux-aarch64 osx-64 osx-arm64 win-64; do
+            CCX_PLATFORM=$platform python -m build --wheel --no-isolation --outdir dist .
+          done
+          python -m build --sdist --no-isolation --outdir dist .
+          ls -l dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  test:
+    name: Test (${{ matrix.platform }}, Python ${{ matrix.python }})
+    needs: build
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { platform: linux-64, runner: ubuntu-latest, python: "3.9" }
+          - { platform: linux-64, runner: ubuntu-latest, python: "3.14" }
+          - { platform: linux-aarch64, runner: ubuntu-24.04-arm, python: "3.12" }
+          - { platform: osx-64, runner: macos-15-intel, python: "3.12" }
+          - { platform: osx-arm64, runner: macos-latest, python: "3.12" }
+          - { platform: win-64, runner: windows-latest, python: "3.12" }
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      # pip takes the one wheel this platform can install, from the built ones alone.
+      - name: Install this platform's wheel
+        run: |
+          python -m pip install --only-binary :all: --no-index --find-links dist ccx
+          python -m pip install pytest
+      - name: Test it
+        run: python -m pytest -q tests
+
+  sdist:
+    name: Build a wheel from the sdist
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - name: Build and install it
+        run: |
+          python -m pip wheel --no-deps --wheel-dir built dist/ccx-*.tar.gz
+          python -m pip install built/ccx-*.whl
+          ccx -v | grep "Version 2.23"
+
+  publish:
+    name: Publish to PyPI
+    needs: [build, test, sdist]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: pypi
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: The tag is the package's version
+        run: |
+          version=$(python3 -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          test "v$version" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME is not v$version"; exit 1; }
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
