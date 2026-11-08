@@ -65,8 +65,9 @@ with the reference BLAS and LAPACK, and records each platform's files (`scripts/
 `CALCULIX` there and `version` in `pyproject.toml` and `src/cad_ccx/__init__.py` together.
 
 CI (`.github/workflows/wheels.yml`) builds every wheel and the sdist, tests each wheel on its own platform (the
-launcher, and a cantilever solved against beam theory), and publishes to PyPI through trusted publishing: from a
-`v*` tag, or by running the workflow on `main` with `publish` set, which then tags the commit `v<version>`.
+launcher, and a cantilever solved against beam theory), and publishes to PyPI through trusted publishing whenever `main` carries a version not yet released: a
+push that bumps the version releases it, and the workflow then tags the commit `v<version>`. A `v*` tag publishes
+too.
 
 ## Versions
 

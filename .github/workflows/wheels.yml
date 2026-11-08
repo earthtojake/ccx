@@ -3,8 +3,9 @@ name: Wheels
 # Every wheel and the sdist are built on one Linux runner (a wheel is a repackaging of conda-forge's CalculiX: any
 # machine builds any platform's), then each wheel is installed and tested on its own platform, and the sdist is
 # built into a wheel to prove it builds. Everything is published to PyPI through trusted publishing (the `pypi`
-# environment; no token is stored) by a v* tag whose version matches the package's, or by running the workflow on
-# main with `publish` set, which publishes the package's version and then tags the commit v<version> itself.
+# environment; no token is stored) when main carries a version that is not tagged yet: a push to main that bumps
+# the version releases it, and the workflow then tags the commit v<version> itself. A v* tag whose version matches
+# the package's publishes too, and so does running the workflow on main with `publish` set.
 
 on:
   push:
@@ -104,7 +105,10 @@ jobs:
   publish:
     name: Publish to PyPI
     needs: [build, test, sdist]
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish && github.ref == 'refs/heads/main')
+    if: >-
+      startsWith(github.ref, 'refs/tags/v') ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && inputs.publish && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: pypi
@@ -124,19 +128,26 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
           if [ "$GITHUB_REF_TYPE" = tag ]; then
             test "v$version" = "$GITHUB_REF_NAME" || { echo "tag $GITHUB_REF_NAME is not v$version"; exit 1; }
+            echo "publish=true" >> "$GITHUB_OUTPUT"
           elif gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/v$version" > /dev/null 2>&1; then
-            echo "v$version is tagged already: bump the version to publish this commit"; exit 1
+            # Released already: a push to main publishes nothing until the version changes.
+            echo "v$version is released already; nothing to publish"
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/download-artifact@v8
+        if: steps.version.outputs.publish == 'true'
         with:
           name: dist
           path: dist
       - uses: pypa/gh-action-pypi-publish@release/v1
+        if: steps.version.outputs.publish == 'true'
         with:
           packages-dir: dist
-      # A dispatched publish tags what it published. A tag the workflow's token makes starts no run of its own.
+      # A release from main tags what it published. A tag the workflow's token makes starts no run of its own.
       - name: Tag the published commit
-        if: github.ref_type != 'tag'
+        if: steps.version.outputs.publish == 'true' && github.ref_type != 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/v${{ steps.version.outputs.version }}" -f "sha=$GITHUB_SHA"
