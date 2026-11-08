@@ -2,7 +2,7 @@
 
 A wheel is a repackaging, not a compile: the hook downloads the platform's pinned conda packages (each checked
 against its sha256), unpacks only the files ``pins.json`` lists for it -- ``ccx`` and the libraries it loads, under
-the names the loader asks for -- into ``ccx/_bin``, and tags the wheel for that platform. Any machine can build any
+the names the loader asks for -- into ``cad_ccx/_bin``, and tags the wheel for that platform. Any machine can build any
 platform's wheel. The platform is ``CCX_PLATFORM`` (``linux-64``, ``linux-aarch64``, ``osx-64``, ``osx-arm64``,
 ``win-64``), else this machine's. Downloads are kept in ``CCX_CACHE`` (default: the user's cache folder).
 
@@ -130,7 +130,7 @@ class CustomBuildHook(BuildHookInterface):
         platform = os.environ.get("CCX_PLATFORM") or host_platform()
         staged = Path(self.directory) / f".ccx-{platform}"
         record = stage(platform, staged)
-        build_data["force_include"][str(staged)] = "ccx/_bin"
+        build_data["force_include"][str(staged)] = "cad_ccx/_bin"
         build_data["tag"] = f"py3-none-{record['tag']}"
         build_data["pure_python"] = False
         self.app.display_info(f"ccx: CalculiX {json.loads(PINS.read_text())['calculix']} for {platform} ({record['tag']})")

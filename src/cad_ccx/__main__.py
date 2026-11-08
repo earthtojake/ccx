@@ -1,4 +1,4 @@
-"""``ccx`` (and ``python -m ccx``): the bundled ``ccx`` program, run with these arguments, its exit code ours."""
+"""``ccx`` (and ``python -m cad_ccx``): the bundled ``ccx`` program, run with these arguments, its exit code ours."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import sys
 
 
 def main() -> int:
-    from ccx import executable
+    from cad_ccx import executable
 
     try:
         program = str(executable())

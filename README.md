@@ -1,17 +1,18 @@
-# ccx
+# cad-ccx
 
-CalculiX's finite-element solver, `ccx`, packaged as a Python wheel, with a small launcher.
+CalculiX's finite-element solver, `ccx`, packaged as a Python wheel, with a small launcher. It is what
+[text-to-cad](https://github.com/earthtojake/text-to-cad)'s `cad[calculix]` installs, and works on its own too.
 
 ```bash
-pip install ccx
+pip install cad-ccx
 ccx -v                      # This is Version 2.23
 ```
 
 ```python
-import ccx
+import cad_ccx
 
-ccx.executable()            # the bundled ccx program
-done = ccx.run("beam.inp")  # runs it in beam.inp's folder, on one thread; raises ccx.CcxError on failure
+cad_ccx.executable()            # the bundled ccx program
+done = cad_ccx.run("beam.inp")  # runs it in beam.inp's folder, on one thread; raises cad_ccx.CcxError on failure
 print(done.dat.read_text()) # what it printed to beam.dat
 ```
 
@@ -33,16 +34,16 @@ One platform's `ccx` and the libraries it loads, read from the binary's own head
 
 BLAS and LAPACK are the reference (netlib) builds rather than OpenBLAS: CalculiX's sparse solver, SPOOLES, carries
 its own kernels, so a static solve barely uses BLAS, and the reference builds add no threads of their own.
-Each wheel's `ccx/_bin/manifest.json` names every conda package it came from, with its URL and sha256.
+Each wheel's `cad_ccx/_bin/manifest.json` names every conda package it came from, with its URL and sha256.
 
 ## The launcher
 
 | | |
 | --- | --- |
-| `ccx.executable()` | The bundled program's path; `FileNotFoundError` in an install without one |
-| `ccx.version()` | The CalculiX release bundled, `"2.23"` |
-| `ccx.run(inp, *, threads=1, timeout=None, env=None, check=True)` | Runs `ccx -i <job>` in the input's folder with every CalculiX thread variable set to `threads`; returns a `ccx.Run` (`returncode`, `stdout`, `stderr`, `errors`: the `*ERROR` lines, `ok`, `dat`, `frd`, `output(suffix)`); raises `ccx.CcxError` when it fails, unless `check=False` |
-| `ccx` (the command), `python -m ccx` | The bundled program with your arguments |
+| `cad_ccx.executable()` | The bundled program's path; `FileNotFoundError` in an install without one |
+| `cad_ccx.version()` | The CalculiX release bundled, `"2.23"` |
+| `cad_ccx.run(inp, *, threads=1, timeout=None, env=None, check=True)` | Runs `ccx -i <job>` in the input's folder with every CalculiX thread variable set to `threads`; returns a `cad_ccx.Run` (`returncode`, `stdout`, `stderr`, `errors`: the `*ERROR` lines, `ok`, `dat`, `frd`, `output(suffix)`); raises `cad_ccx.CcxError` when it fails, unless `check=False` |
+| `ccx` (the command), `python -m cad_ccx` | The bundled program with your arguments |
 
 The launcher reads and writes no CalculiX file: building a deck and reading its results are the caller's.
 
@@ -61,11 +62,16 @@ Building from the sdist does the same, so it needs network access to conda-forge
 
 `scripts/pins.py` regenerates `pins.json`: it resolves CalculiX's dependencies against conda-forge's own index,
 with the reference BLAS and LAPACK, and records each platform's files (`scripts/closure.py`) and wheel tag. Bump
-`CALCULIX` there and `version` in `pyproject.toml` and `src/ccx/__init__.py` together.
+`CALCULIX` there and `version` in `pyproject.toml` and `src/cad_ccx/__init__.py` together.
 
 CI (`.github/workflows/wheels.yml`) builds every wheel and the sdist, tests each wheel on its own platform (the
 launcher, and a cantilever solved against beam theory), and publishes to PyPI from a `v*` tag through trusted
 publishing.
+
+## Versions
+
+A release's version is the CalculiX release it carries (`2.23.0` carries CalculiX 2.23). A fix to the packaging
+alone is a post-release (`2.23.0.post1`), the same CalculiX.
 
 ## Licences
 

@@ -11,7 +11,7 @@ from unittest import mock
 
 import pytest
 
-import ccx
+import cad_ccx as ccx
 
 # A steel cantilever, 100 x 10 x 10 mm, clamped at x = 0, 100 N down at its tip, in 20 x 2 x 2 incompatible-mode
 # bricks (C3D8I), which bend without locking. Beam theory: P L^3 / (3 E I) = 0.1905 mm, shear adding about 0.3%.
@@ -99,7 +99,7 @@ def test_a_failure_says_why_and_raises_unless_asked_not_to(tmp_path):
 def test_every_thread_variable_is_set(tmp_path):
     deck = _cantilever(tmp_path)
     finished = subprocess.CompletedProcess([], 0, "", "")
-    with mock.patch("ccx.subprocess.run", return_value=finished) as called:
+    with mock.patch("cad_ccx.subprocess.run", return_value=finished) as called:
         ccx.run(deck, threads=3, env={"KEEP": "1"})
     environment = called.call_args.kwargs["env"]
     assert {name: environment[name] for name in ccx.THREAD_VARIABLES} == dict.fromkeys(ccx.THREAD_VARIABLES, "3")
@@ -116,5 +116,5 @@ def test_an_input_that_is_not_there_is_refused(tmp_path):
 
 
 def test_the_command_runs_the_bundled_program():
-    said = subprocess.run([sys.executable, "-m", "ccx", "-v"], capture_output=True, text=True, stdin=subprocess.DEVNULL)
+    said = subprocess.run([sys.executable, "-m", "cad_ccx", "-v"], capture_output=True, text=True, stdin=subprocess.DEVNULL)
     assert "Version 2.23" in said.stdout

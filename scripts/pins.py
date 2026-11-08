@@ -151,7 +151,7 @@ def wheel_tag(platform: str, closure: dict) -> str:
 
 
 def shipped_as(platform: str, name: str, closure: dict) -> str:
-    """Where a file goes in the wheel's ``ccx/_bin``: beside ``ccx.exe`` on Windows, where it loads DLLs from; else
+    """Where a file goes in the wheel's ``cad_ccx/_bin``: beside ``ccx.exe`` on Windows, where it loads DLLs from; else
     ``bin/ccx`` and ``lib/<name>``, which its ``$ORIGIN/../lib`` or ``@loader_path/../lib`` finds."""
     if platform == "win-64" or name == closure["binary"]:
         return f"bin/{name}"

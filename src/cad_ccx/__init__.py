@@ -1,14 +1,15 @@
-"""CalculiX's solver, ``ccx``, packaged as a wheel, with a small launcher.
+"""CalculiX's solver, ``ccx``, packaged as a wheel, with a small launcher: ``cad-ccx``, what text-to-cad's
+``cad[calculix]`` installs.
 
 This package ships the ``ccx`` program, CalculiX's finite-element solver, built by conda-forge and unmodified,
 with the libraries it loads, for one platform per wheel. It is unofficial: not affiliated with the CalculiX project
 (https://www.calculix.de). What it adds is a way to find and run that program from Python::
 
-    import ccx
+    import cad_ccx
 
-    ccx.executable()                      # Path to the bundled ccx program
-    ccx.version()                         # "2.23", the CalculiX release bundled
-    done = ccx.run("beam.inp")            # runs ccx on beam.inp in its own folder, on one thread
+    cad_ccx.executable()                  # Path to the bundled ccx program
+    cad_ccx.version()                     # "2.23", the CalculiX release bundled
+    done = cad_ccx.run("beam.inp")        # runs ccx on beam.inp in its own folder, on one thread
     done.dat.read_text()                  # what it printed to beam.dat
 
 ``run`` sets every thread count CalculiX reads to ``threads`` (default 1, so a solve prints the same numbers every
@@ -42,7 +43,7 @@ def executable() -> Path:
     wheel for another platform)."""
     path = _BIN / "bin" / ("ccx.exe" if sys.platform == "win32" else "ccx")
     if not path.is_file():
-        raise FileNotFoundError(f"this install of the ccx package has no ccx program at {path}: install a wheel built "
+        raise FileNotFoundError(f"this install of the cad-ccx package has no ccx program at {path}: install a wheel built "
                                 "for this platform")
     return path
 

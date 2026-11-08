@@ -71,7 +71,7 @@ jobs:
       # pip takes the one wheel this platform can install, from the built ones alone.
       - name: Install this platform's wheel
         run: |
-          python -m pip install --only-binary :all: --no-index --find-links dist ccx
+          python -m pip install --only-binary :all: --no-index --find-links dist cad-ccx
           python -m pip install pytest
       - name: Test it
         run: python -m pytest -q tests
@@ -91,8 +91,8 @@ jobs:
           path: dist
       - name: Build and install it
         run: |
-          python -m pip wheel --no-deps --wheel-dir built dist/ccx-*.tar.gz
-          python -m pip install built/ccx-*.whl
+          python -m pip wheel --no-deps --wheel-dir built dist/cad_ccx-*.tar.gz
+          python -m pip install built/cad_ccx-*.whl
           ccx -v | grep "Version 2.23"
 
   publish:
